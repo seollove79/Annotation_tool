@@ -14,39 +14,13 @@
 
 
         myCanvas.onclick = function(event) {
-            ctx.clearRect(0,0,1024,768);
-            let xValue = event.clientX - ctx.canvas.offsetLeft; 
-            let yValue = event.clientY - ctx.canvas.offsetTop;
-            
-
-            let coord = {
-                x : xValue,
-                y : yValue,
-            }
-            clickCoords.push(coord);
-
-            ctx.fillStyle = 'black';
-            clickCoords.forEach(point => {
-                ctx.fillRect(point.x-2, point.y-2, 4, 4);
-            });
-
-            if (clickCoords.length >= 2) {
-                ctx.beginPath();
-                clickCoords.forEach((point,index) => {
-                    if(index == 0) {
-                        ctx.moveTo(point.x, point.y);
-                    } else {
-                        ctx.lineTo(point.x, point.y);
-                        //ctx.moveTo(point.x, point.y);
-                    }
-                    ctx.closePath();
-                    // ctx.stroke();
-                    ctx.fill();
-                });
-            }
-
-            // 
-            // 
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(100, 0);
+            ctx.lineTo(100, 100);
+            ctx.lineTo(80, 100);
+            ctx.closePath();
+            ctx.fill();
         }
     </script>
 </html>
